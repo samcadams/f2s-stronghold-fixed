@@ -1,0 +1,20 @@
+"stronghold"
+{
+	"base"		"base"
+	"title"		"F2S: Stronghold"
+	"maps"		"^sh_"
+	"menusystem"	"1"
+	"workshopid"	"1090256786"
+	
+	"settings"
+	{
+		1
+		{
+			"name"		"sbox_maxprops"
+			"text"		"max_props"
+			"help"		"Maximum props a single player can create"
+			"type"		"Numeric"
+			"default"	"20"
+		}
+	}
+}

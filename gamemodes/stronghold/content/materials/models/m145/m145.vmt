@@ -1,0 +1,13 @@
+"VertexLitGeneric"
+{
+	$basetexture "models/m145/m145"
+	$bumpmap "models/m145/m145_bmp"
+	$halflambert 1
+	$nodecal 1
+	$model 1
+	$phong 1
+	$phongexponent 5
+	$phongexponenttexture "models/m145/m145"
+	$phongboost 1
+	$phongfresnelranges	"[0.01 0.01 0.1]"
+}

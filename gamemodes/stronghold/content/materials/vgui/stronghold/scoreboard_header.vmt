@@ -1,0 +1,5 @@
+"UnlitGeneric"
+{
+	"$basetexture" "vgui/stronghold/scoreboard_header"
+	"$translucent" 1
+}

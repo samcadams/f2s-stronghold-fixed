@@ -1,0 +1,7 @@
+"UnlitGeneric"
+{
+	"$basetexture" "tool/ammocrate_open"
+	"$ignorez" 1
+	"$vertexalpha" 1
+	"$vertexcolor" 1
+}

@@ -1,0 +1,13 @@
+"VertexLitGeneric"
+{
+	$basetexture "models/scope/scope"
+	$bumpmap "models/scope/scope_bmp"
+	$halflambert 1
+	//$nodecal 1
+	$model 1
+	"$phong"     "1"
+ 	"$phongexponent"   10
+ 	"$phongboost"   "0.2"
+ 	"$phongfresnelranges"   "[0.1 0 0.5]"
+}
+

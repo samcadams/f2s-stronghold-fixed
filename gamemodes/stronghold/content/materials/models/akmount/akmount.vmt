@@ -1,0 +1,12 @@
+"VertexLitGeneric"
+{
+	$basetexture "models/akmount/akmount"
+	$bumpmap "models/akmount/akmount_bmp"
+	$halflambert 1
+	//$nodecal 1
+	$model 1
+	"$phong"     "1"
+ 	"$phongexponent"   10
+ 	"$phongboost"   "0.05"
+ 	"$phongfresnelranges"   "[.5 .8 1]"
+}

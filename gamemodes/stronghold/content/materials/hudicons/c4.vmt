@@ -1,0 +1,7 @@
+"UnlitGeneric"
+{
+	"$basetexture"		"hudicons/c4"
+	"$ignorez"			1
+	"$vertexcolor" 		1
+	"$vertexalpha" 		1
+}

@@ -1,0 +1,12 @@
+"VertexLitGeneric"
+{
+	$basetexture "models/augrail/Augrail"
+	$bumpmap "models/augrail/augrail_bmp"
+	$halflambert 1
+	//$nodecal 1
+	$model 1
+	"$phong"     "1"
+ 	"$phongexponent"   5
+ 	"$phongboost"   "0.1"
+ 	"$phongfresnelranges"   "[1 1 1]"
+}

@@ -1,0 +1,12 @@
+"VertexLitGeneric"
+{
+	$basetexture "models/irons/irons"
+	$bumpmap "models/irons/irons_bmp"
+	$halflambert 1
+	$nodecal 1
+	$model 1
+	"$phong"     "1"
+ 	"$phongexponent"   5
+ 	"$phongboost"   "0.05"
+ 	"$phongfresnelranges"   "[1 1 1]"
+}

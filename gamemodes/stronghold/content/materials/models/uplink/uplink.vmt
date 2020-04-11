@@ -1,0 +1,5 @@
+VertexLitGeneric
+{
+	"$basetexture" "models\uplink\uplink"
+	 "$model" 1
+}

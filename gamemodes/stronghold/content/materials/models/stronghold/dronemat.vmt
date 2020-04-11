@@ -1,0 +1,11 @@
+VertexLitGeneric
+{
+	$basetexture "models/stronghold/dronemat"
+	$bumpmap "models/stronghold/dronebmp"
+	$halflambert 0
+	$model 1
+	$phong     1
+ 	$phongexponent   50
+ 	$phongboost   0.1
+ 	$phongfresnelranges  "[1 4 6]"
+}

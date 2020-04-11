@@ -1,0 +1,14 @@
+"VertexLitGeneric"
+{
+	$basetexture "models/rds/rds"
+	$bumpmap "models/rds/rds_bmp"
+	$halflambert 1
+	$nodecal 1
+	$model 1
+	$phong 1
+	$phongexponent 5
+	$phongexponenttexture "models/rds/rds"
+	$phongboost 1
+	$phongfresnelranges	"[0.1 0.1 0.1]"
+}
+
