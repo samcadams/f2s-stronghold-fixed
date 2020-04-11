@@ -11,7 +11,7 @@ local PANEL = {}
 
 function PANEL:Init()
 	self.Donate = vgui.Create( "HTML", self )
-	self.Donate:OpenURL( "http://www.roaringcow.com/Donate.php" )
+	--self.Donate:OpenURL( "http://www.roaringcow.com/Donate.php" )
 end
 
 function PANEL:PerformLayout( w, h )

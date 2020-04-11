@@ -16,7 +16,6 @@ end
 hook.Add( "OnGamemodeLoaded", "CreateSpawnMenu", function() GAMEMODE:InitSpawnMenu() end )
 
 function GM:OnSpawnMenuOpen()
-	if !hook.Call( "SpawnMenuOpen", GAMEMODE ) then return end
 	if g_SpawnMenu then g_SpawnMenu:Open() end
 end
 

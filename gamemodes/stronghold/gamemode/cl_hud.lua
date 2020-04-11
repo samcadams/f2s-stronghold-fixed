@@ -123,7 +123,7 @@ function GM:HUDPaint()
 	end
 	self:DrawWaitingInfo( initstate )
 	self.Map:PaintMarkers()
-	self:GetVersion()
+	--self:GetVersion()
 	self:Compass()
 end
 
@@ -195,50 +195,6 @@ function GM:Compass()
 	end
 end
 
-local Fetched
-local Recieved
-function GM:GetVersion()
-	--if !LocalPlayer():IsAdmin() then return end
-		local Compare = function( strBody, intLen, tblHeaders, intCode )
-		self.CurVersion = strBody
-	end
-		local Changes = function( strBody, intLen, tblHeaders, intCode )
-		self.Changes = strBody
-	end
-	local x,y = 5,50
-	if self.CurVersion != self.Version and self.CurVersion then
-	local pulse = math.sin(RealTime()*10)+1
-	--print(pulse)
-		draw.SimpleText("Server out of date!","Default",GAMEMODE.ConVars.GBux_Offset:GetInt()+x+1,y+1,Color(0,0,0))
-		draw.SimpleText("Server out of date!","Default",GAMEMODE.ConVars.GBux_Offset:GetInt()+x,y,Color(255,255*pulse,255*pulse))
-		
-		draw.SimpleText("This version:       " .. self.Version,"Default",GAMEMODE.ConVars.GBux_Offset:GetInt()+x+1,y+11,Color(0,0,0))
-		draw.SimpleText("This version:       " .. self.Version,"Default",GAMEMODE.ConVars.GBux_Offset:GetInt()+x,y+10,Color(255,0,0))
-		
-		draw.SimpleText("Current Version: " .. self.CurVersion,"Default",GAMEMODE.ConVars.GBux_Offset:GetInt()+x+1,y+21,Color(0,0,0))
-		draw.SimpleText("Current Version: " .. self.CurVersion,"Default",GAMEMODE.ConVars.GBux_Offset:GetInt()+x,y+20,Color(0,150,0))
-		
-	
-	
-		local ply = LocalPlayer()
-		if !self.Checked then 
-			chat.AddText( Color(200,0,0),"Server out of date!")
-			chat.AddText( Color(0,200,0),self.CurVersion .." Changes: ",Color(200,200,200), self.Changes )
-			self.Checked = true
-		end
-	end
-	
-	local Fail = function(intCode)
-		print(intCode)
-	end
-	
-	if !Fetched then
-		http.Fetch("http://www.roaringcow.com/PDT/F2S_Version.txt", Compare, Fail )
-		http.Fetch("http://www.roaringcow.com/PDT/F2S_Changes.txt", Changes, Fail )
-		Fetched = true
-	end
-end
-concommand.Add("sh_getversion", GM.GetVersion)
 local InfoFade = 255
 local headbob = 0
 local headturn = 0

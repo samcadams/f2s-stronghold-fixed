@@ -19,7 +19,7 @@ function PANEL:Init()
 	
 	self.HelpPanel = vgui.Create( "Panel", self )
 	local html = vgui.Create( "HTML", self.HelpPanel )
-	html:OpenURL( "http://stronghold.roaringcow.com/" )
+	--html:OpenURL( "http://stronghold.roaringcow.com/" )
 	--local controls = vgui.Create( "DHTMLControls", self.HelpPanel )
 	--controls:SetHTML( html )
 	
