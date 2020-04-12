@@ -51,7 +51,7 @@ function GM:OptionsInit()
 	local slider, _ = self.OptionsFrame:AddOption( "HUD (Heads Up Display)", "NumSlider", "GBux x-axis offset", "sh_gbuxoffset", 0, ScrW()-150, 0 ) slider:SetTall( 24 ) slider.TextArea:SetDrawBackground( true )
 	self.OptionsFrame:AddOption( "HUD (Heads Up Display)", "CheckBox", "Enable Compass", "sh_compass" )
 	local slider, _ = self.OptionsFrame:AddOption( "HUD (Heads Up Display)", "NumSlider", "Compass Position X", "sh_composx", 0.1, 0.9, 3 ) slider:SetTall( 24 ) slider.TextArea:SetDrawBackground( true )
-	local slider, _ = self.OptionsFrame:AddOption( "HUD (Heads Up Display)", "NumSlider", "Compass Position Y", "sh_composy", 0, 0.992, 3 ) slider:SetTall( 24 ) slider.TextArea:SetDrawBackground( true )
+	local slider, _ = self.OptionsFrame:AddOption( "HUD (Heads Up Display)", "NumSlider", "Compass Position Y", "sh_composy", 0, 0.925, 3 ) slider:SetTall( 24 ) slider.TextArea:SetDrawBackground( true )
 	local slider, _ = self.OptionsFrame:AddOption( "HUD (Heads Up Display)", "NumSlider", "Compass Sensitivity", "sh_comspeed", 1, 12, 0 ) slider:SetTall( 24 ) slider.TextArea:SetDrawBackground( true )
 	local slider, _ = self.OptionsFrame:AddOption( "HUD (Heads Up Display)", "NumSlider", "Compass Tick Spacing", "sh_comtd", 1, 12, 0 ) slider:SetTall( 24 ) slider.TextArea:SetDrawBackground( true )
 
@@ -69,8 +69,6 @@ function GM:OptionsInit()
 	btn:SetColorTexture( "hitdetection2" )
 	self.OptionsFrame:AddOption( "Hit Indicator", "AddItem", btn )
 	
-	self.OptionsFrame:AddOption( "Voice Chat", "CheckBox", "Enabled", "voice_enable" )
-	local slider, _ = self.OptionsFrame:AddOption( "Voice Chat", "NumSlider", "Voice Scale", "voice_scale", 0, 2, 2 ) slider:SetTall( 24 ) slider.TextArea:SetDrawBackground( true )
 	local channel = self.OptionsFrame:AddOption( "Voice Chat", "CheckBox", "Talk to team (Uncheck for public)" )
 	function channel:OnChange( b ) RunConsoleCommand( "sh_voice_channel", b and 1 or 0 ) end
 	self.OptionsFrame:AddOption( "Voice Chat", "CheckBox", "Always Hear Public", "sh_voice_alwayshearpublic" )
