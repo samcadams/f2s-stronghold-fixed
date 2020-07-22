@@ -20,6 +20,14 @@ function ENT:Explode()
 	effectdata:SetOrigin( self:GetPos() )
 	util.Effect( "shockwave", effectdata, true, true )
 	util.Effect( "explosion_dust", effectdata, true, true )
+	
+	for _, v in ipairs(ents.FindInSphere( self:GetPos(), 20 )) do
+		local dmginfo = DamageInfo()
+		dmginfo:SetAttacker( self.Owner )
+		dmginfo:SetInflictor( self )
+		dmginfo:SetDamage( 150 )
+		v:TakeDamageInfo( dmginfo )
+	end
 
 	local explo = ents.Create( "env_explosion" )
 	explo:SetOwner( self.GrenadeOwner )
