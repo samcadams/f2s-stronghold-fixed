@@ -563,8 +563,14 @@ function GM:EntityTakeDamage( ent, dmginfo )
 	if IsValid( inflictor ) then
 		if inflictor:GetClass() == "sent_turret_mountable" or inflictor:GetClass() == "gmod_turret" or !table.HasValue( BreakableEntities, class ) then return end
 
+		-- This bit means c4 or rocket damage is treated differently. This is the reason why changing damage values within the sent_(entity) lua won't matter
+		-- since damage is capped by these few lines. I added an extra condition for grenades. -Doxx
+		
 		if inflictor:GetClass() == "sent_c4" or inflictor:GetClass() == "sent_rocket" or dmginfo:GetAmmoType() == 7 then
 			amount = math.min( 2500, amount )
+			
+		elseif inflictor:GetClass() == "sent_explosivegrenade" then
+			amount = math.min( 150, amount )
 			
 		else
 			amount = math.min( 5, amount )
