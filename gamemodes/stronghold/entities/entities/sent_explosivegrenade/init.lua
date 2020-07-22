@@ -23,7 +23,7 @@ function ENT:Explode()
 	
 	for _, v in ipairs(ents.FindInSphere( self:GetPos(), 20 )) do
 		local dmginfo = DamageInfo()
-		dmginfo:SetAttacker( self.Owner )
+		dmginfo:SetAttacker( self.GrenadeOwner )
 		dmginfo:SetInflictor( self )
 		dmginfo:SetDamage( 150 )
 		v:TakeDamageInfo( dmginfo )
