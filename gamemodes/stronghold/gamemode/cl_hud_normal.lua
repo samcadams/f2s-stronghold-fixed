@@ -23,6 +23,7 @@ TEX_HUDICONS["shield"] 				= surface.GetTextureID( "hudicons/shield" )
 TEX_HUDICONS["weapon_sh_drone"] 	= surface.GetTextureID( "hudicons/shield" )
 TEX_HUDICONS["weapon_sh_c4"] 		= surface.GetTextureID( "hudicons/c4" )
 TEX_HUDICONS["weapon_sh_flash"] 	= surface.GetTextureID( "hudicons/fnade" )
+TEX_HUDICONS["weapon_sh_incendiarygrenade"] 	= surface.GetTextureID( "hudicons/fnade" )
 TEX_HUDICONS["weapon_sh_grenade"] 	= surface.GetTextureID( "hudicons/henade" )
 TEX_HUDICONS["weapon_sh_smoke"] 	= surface.GetTextureID( "hudicons/snade" )
 

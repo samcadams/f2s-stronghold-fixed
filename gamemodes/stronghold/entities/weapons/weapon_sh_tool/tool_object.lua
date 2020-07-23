@@ -170,6 +170,7 @@ function ToolObj:MakeGhostEntity( model, pos, angle )
 		self.GhostEntity = ClientsideModel( model )
 	end
 	
+	
 	// If there's too many entities we might not spawn..
 	if !self.GhostEntity:IsValid() then
 		self.GhostEntity = nil

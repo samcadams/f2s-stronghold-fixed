@@ -270,6 +270,7 @@ function PANEL:Init()
 			self.ExplosiveQuickBuy:Setup(
 				((self.CurrentExplosive=="weapon_sh_drone" and "Assault Drones") or
 				 (self.CurrentExplosive=="weapon_sh_grenade" and "H.E. Grenades") or
+				 (self.CurrentExplosive=="weapon_sh_incendiarygrenade" and "Incendiaries") or
 				 (self.CurrentExplosive=="weapon_sh_smoke" and "Smoke Grenades") or
 				 (self.CurrentExplosive=="weapon_sh_flash" and "Flash Grenades") or
 				 (self.CurrentExplosive=="weapon_sh_c4" and "C4 Explosives")),
