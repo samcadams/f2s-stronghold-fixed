@@ -566,6 +566,8 @@ function GM:EntityTakeDamage( ent, dmginfo )
 		if inflictor:GetClass() == "sent_c4" or inflictor:GetClass() == "sent_rocket" or dmginfo:GetAmmoType() == 7 then
 			amount = math.min( 2500, amount )
 			
+		elseif inflictor:GetClass() == "sent_explosivegrenade" then
+			amount = math.min( 150, amount )
 		else
 			amount = math.min( 5, amount )
 		end

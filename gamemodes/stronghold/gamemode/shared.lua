@@ -96,6 +96,8 @@ GM.ValidWeapons = table.Merge( table.Merge({},GM.PrimaryWeapons), GM.SecondaryWe
 
 GM.Explosives = {}
 GM.Explosives["weapon_sh_grenade"] = { ammo=2, name="H.E. Grenade", price=1.99, model="models/weapons/w_eq_fraggrenade.mdl", cook=true,offset=Vector(-10,0.5,-5), fov=13 }
+-- Experimental incend
+GM.Explosives["weapon_sh_incendiarygrenade"] = { ammo=2, name="Incendiary Grenade", price=24.99, model="models/weapons/w_eq_flashbang.mdl", cook=true,offset=Vector(-10,0.5,-5), fov=17 }
 GM.Explosives["weapon_sh_flash"] =   { ammo=2, name="Flash Bang", price=0.99, model="models/weapons/w_eq_flashbang.mdl", cook=true,offset=Vector(-10,0.5,-5), fov=17 }
 GM.Explosives["weapon_sh_c4"] =      { ammo=1, name="C4 Explosive", price=99.99, model="models/weapons/w_c4_planted.mdl", fov=20, ang=Angle(-30,145,0),offset=Vector(-40,-2,-20) }
 GM.Explosives["weapon_sh_drone"] =   { ammo=1, name="Assault Drone", price=99.99, model="models/stronghold/drone.mdl",offset=Vector(-60,0,-20), fov=20 }

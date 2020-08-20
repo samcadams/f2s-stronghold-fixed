@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\entities",
+    "\\entities\\entities",
+    "\\entities\\entities\\sent_incendiarygrenade",
+    "\\entities\\weapons"
+  ],
+  "SelectedNode": "\\entities\\entities\\sent_incendiarygrenade\\init.lua",
+  "PreviewInSolutionExplorer": false
+}

@@ -29,12 +29,12 @@ local font_data = {
 	},
 	["gbux_defaultbold"] = {
 		font 	= "DermaDefault",
-		size 	= 12,
+		size 	= 16,
 		weight 	= 700
 	},
 	["gbux_default"] = {
 		font 	= "DermaDefault",
-		size 	= 12,
+		size 	= 16,
 		weight 	= 500
 	},
 	["DeathCamera"] = {
@@ -310,7 +310,13 @@ function GM:DrawKillCam()
 	local x, y, w, h = math.floor(sw*0.50)-400, math.floor(sh*0.65)+30, 800, 30
 	if !IsValid( killer ) then killerwep = nil return end
 	if !killerwep then
-	killerwep = killer:GetActiveWeapon().PrintName
+		if pcall(killer:GetActiveWeapon()) then
+			killerwep = killer:GetActiveWeapon().PrintName
+		else
+			--Catch 'nil' killerwep calls. Nil calls are probably due to incends.
+			--TODO: Figure out how to fix that for real instead of this cheeky hack.
+			killerwep = "Fire"
+		end
 	end
 	if killer == LocalPlayer() then
 		killerwep = "Suicide"
