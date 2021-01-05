@@ -5,8 +5,8 @@ SWEP.ViewModel = "models/weapons/v_slam.mdl"
 SWEP.WorldModel = "models/weapons/w_slam.mdl"
 SWEP.DrawWeaponInfoBox  	= false
 
-SWEP.Primary.ClipSize = 2
-SWEP.Primary.DefaultClip = 2
+SWEP.Primary.ClipSize = 3
+SWEP.Primary.DefaultClip = 3
 SWEP.Primary.Automatic = false
 SWEP.Primary.Ammo = "battery"
 
@@ -43,7 +43,7 @@ function SWEP:Initialize()
 		elseif self:GetOwner():IsGold() then
 		self.Primary.Clipsize = 3
 		else]]
-	self.Primary.ClipSize = 2
+	self.Primary.ClipSize = 3
 	end
 end
 
@@ -63,13 +63,13 @@ function SWEP:CheckAmmo()
 	self:SetClip1( 4-count )
 	else
 	end]]
-	self:SetClip1( 2-count )
+	self:SetClip1( 3-count )
 end
 
 function SWEP:Think()
 	if self:Clip1() > 0 and self.PlaceTripMine != 0 and CurTime() >= self.PlaceTripMine then
 		self.PlaceTripMine = 0
-		self:SendWeaponAnim( (self:Clip1()<2 and ACT_SLAM_THROW_THROW2 or ACT_SLAM_THROW_THROW_ND2) )
+		self:SendWeaponAnim( (self:Clip1()<3 and ACT_SLAM_THROW_THROW2 or ACT_SLAM_THROW_THROW_ND2) )
 		self.ResetTripMine = CurTime() + 0.60
 		if SERVER then
 			local pos = self.Owner:GetShootPos()
@@ -181,7 +181,7 @@ function SWEP:Deploy()
 	self:CheckAmmo()
 	if self:Clip1() < 1 then
 		self:SendWeaponAnim( ACT_SLAM_DETONATOR_DRAW )
-	elseif self:Clip1() < 2 then
+	elseif self:Clip1() < 3 then
 		self:SendWeaponAnim( ACT_SLAM_DETONATOR_THROW_DRAW )
 	else
 		self:SendWeaponAnim( ACT_SLAM_THROW_ND_DRAW )
