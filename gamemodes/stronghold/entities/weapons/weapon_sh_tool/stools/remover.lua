@@ -18,7 +18,6 @@ TOOL.RequiresTraceHit = true
 local function DoRemoveEntity( Entity )
 	--Entities that can be removed.
 	local Entities = {"prop_physics","sent_weaponcrate","sent_spawnpoint","sent_basemarker"}
-	print(Entity:GetClass())
 	if (!Entity) then return false end
 	if (!Entity:IsValid()) then return false end
 	if (Entity:IsPlayer()) then return false end
