@@ -38,7 +38,7 @@ SWEP.DeployAnim				= 1
 SWEP.ReloadAnim				= 3
 SWEP.Origin					= Vector(-15,1,-10)
 SWEP.RunAngleSet 			= "rpg"
-SWEP.Zoom					= 20
+SWEP.Zoom					= 0.3
 
 function SWEP:PrimaryAttack()
 	if self.Sprinting or self.Reloading then 

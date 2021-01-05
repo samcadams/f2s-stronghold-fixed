@@ -1,6 +1,6 @@
 include("shared.lua")
 
-SWEP.FOVM = 0 
+SWEP.FOVM = 1 
 BlendSpeed =0
 local Reloading = false
 Set = false
@@ -159,7 +159,7 @@ function SWEP:PostDrawViewModel()
 	end
 	Resist = math.Clamp(Resist+(FT),0,1)
 	
-	if self.Primary.Ammo != "buckshot" and self.FireOne and self.AlwaysAnim and self.Zoom < 55 or self.Primary.Ammo == "grenade" and self.Owner:KeyPressed(IN_ATTACK2) or self.Primary.Ammo == "grenade" and self.Owner:KeyPressed(IN_ATTACK) then
+	if self.Primary.Ammo != "buckshot" and self.FireOne and self.AlwaysAnim and self.FOVM > 0.3 or self.Primary.Ammo == "grenade" and self.Owner:KeyPressed(IN_ATTACK2) or self.Primary.Ammo == "grenade" and self.Owner:KeyPressed(IN_ATTACK) then
 		vm:SetCycle(cyc)
 		vm:SetSequence(self.ShootAnim)
 		self:ShootEffects()
@@ -312,13 +312,14 @@ local CamMod = 0
 function SWEP:CalcView(ply, pos, ang, fov)
 	local Running = self.Owner:KeyDown( bit.bor(IN_FORWARD,IN_BACK,IN_MOVELEFT,IN_MOVERIGHT) ) and self.Owner:KeyDown( IN_SPEED )
 	
-	if self.Owner:KeyDown(IN_ATTACK2) and !self.Owner:KeyDown(IN_USE) and !Running and !Reloading then
+	if self.Owner:KeyDown(IN_ATTACK2) and !self.Owner:KeyDown(IN_USE) and !Running and !Reloading and self.Zoom > 0 then
 		self.FOVM = Lerp(FT*12, self.FOVM, self.Zoom)
 	elseif FT then
-		self.FOVM = Lerp(FT*12, self.FOVM, 0)
+		self.FOVM = Lerp(FT*12, self.FOVM, 1) --1 means full base fov
 	end
-	
-	fov = fov - self.FOVM
+	--print(self.FOVM)
+	fov = (LocalPlayer():GetFOV() * self.FOVM) --Multiplies base fov (ie 100) by sliding lerp to percentage (1 -> 0.2)
+
 	if !vm then return end
 	local bone = vm:LookupBone("v_weapon.Left_Hand")
 	if !printed then
@@ -686,7 +687,7 @@ function SWEP:BoltMovement()
 		Rscale2 = self.Primary.Recoil*-10*Reduce
 		RandKick = math.Rand(-1,1)
 		self:ShootEffects()
-		if self.FOVM < 55 then
+		if self.FOVM > 0.3 then
 		vm:SetCycle(cyc)
 		vm:SetSequence(self.ShootAnim)
 		vm:SetPlaybackRate(1)

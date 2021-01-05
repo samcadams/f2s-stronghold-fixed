@@ -230,7 +230,7 @@ function SWEP:SetIron(sight, pos, ang)
 	if self.Rails then table.Merge(self.VElements, self.Rails) end
 	if self.Riser then table.Merge(self.VElements, self.Riser) end
 	
-	self.Zoom = self.VElements.m145 and 30 or self.VElements.scope and 60 or 0
+	self.Zoom = self.VElements.m145 and 0.5 or self.VElements.scope and 0.2 or 1 --Decimal number is percentage of base fov (LocalPlayer():GetFOV())
 	
 	local A = self.VElements
 	
@@ -246,7 +246,7 @@ function SWEP:AdjustMouseSensitivity( )
 local CanFire = (CurTime()-self:GetNextPrimaryFire())>=-0.3 and true or false
 local Running = self.Owner:KeyDown( bit.bor(IN_FORWARD,IN_BACK,IN_MOVELEFT,IN_MOVERIGHT) ) and self.Owner:KeyDown( IN_SPEED )
 	if self.Owner:KeyDown(IN_ATTACK2)  and !Running then
-		return (self.Owner:GetFOV( )-self.Zoom) / self.Owner:GetFOV( )
+		return (self.Owner:GetFOV( )*self.Zoom) / self.Owner:GetFOV( )
 	end
 end
 
