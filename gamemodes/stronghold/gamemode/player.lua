@@ -176,6 +176,8 @@ function GM:PlayerInitialSpawn( ply )
 	
 end
 
+
+
 function GM:PlayerPostThink(ply)
 	if !ply.fuel then
 		ply.fuel = 100
@@ -199,7 +201,7 @@ function GM:PlayerPostThink(ply)
 		ply.fuel = math.Clamp(ply.fuel + ply.Time*100,0,100)
 	end
 	
-	if ply.fuel > 0 and ply:KeyDown(IN_JUMP) and !ply:IsOnGround() then
+	if ply.fuel > 0 and ply:KeyDown(IN_JUMP) and !ply:IsOnGround() and ply:GetNWBool("CanJetPack", true) then
 		ply:SetGravity( -0.2 )
 			ply.Thrust:Play()
 			ply.Thrust:ChangePitch(ply.fuel*0.5+200)

@@ -35,6 +35,7 @@ function ENT:Initialize()
 	self.StartPos = self:GetPos()
 	self:SetSolid( SOLID_VPHYSICS )
 	self:SetCollisionGroup( COLLISION_GROUP_NONE )
+	self.players = {}
 	local phys = self:GetPhysicsObject()
 	if phys:IsValid() then
 		phys:Wake()
@@ -76,7 +77,7 @@ function ENT:Think()
 	end
 	self.lastdeposit = self.Deposit
 	
-	self.Cash = self.Cash + (((self.Cash*0.01)*0.001))*self:GetPlayerOwner():GetMultiplier() + (self:GetPlayerOwner().bounty*0.00001)
+	self.Cash = self.Cash + (((self.Cash*0.01)*0.003))*self:GetPlayerOwner():GetMultiplier() + (self:GetPlayerOwner().bounty*0.00003)
 	self:SetCash(self.Cash)
 
 	if self.Deposit > 0 and GAMEMODE.GameOver then
@@ -94,7 +95,28 @@ function ENT:Think()
 			end
 		end
 	end
+	
+	--Disable jumppacks
+	local radius = math.Clamp(512 + math.Round(self.Deposit / 1000) * 256, 512, 2048)
+	local e = ents.FindInSphere(self:GetPos(), radius)
+	local playersthistick = {}
+	for _,v in pairs(e) do
+		if v:IsPlayer() then
+			table.insert(playersthistick, v)
+			if not table.HasValue(self.players, v) then
+				table.insert(self.players, v)
+				v:SetNWBool("CanJetPack", false) 
+			end
+		end
+	end
+	for _,v in pairs(self.players) do
+		if not table.HasValue(playersthistick, v) then
+			v:SetNWBool("CanJetPack", true)
+			table.RemoveByValue(self.players, v)
+		end
+	end
 end
+
 
 function ENT:Use( activator, caller)
 	self:SetUsePressed(true)
