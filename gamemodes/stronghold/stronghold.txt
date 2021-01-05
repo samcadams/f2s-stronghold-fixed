@@ -5,7 +5,11 @@
 	"maps"		"^sh_"
 	"menusystem"	"1"
 	"workshopid"	"1090256786"
-	
+	"selectable"		"1"
+	"fretta_maps"
+	{
+		"1"	"sh_"
+	}
 	"settings"
 	{
 		1
